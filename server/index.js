@@ -16,7 +16,7 @@ app.use(express.json());
 //static
 app.use(express.static(path.join(__dirname, '../build')));
 
-console.log(path.join(__dirname, '../build'));
+// console.log(path.join(__dirname, '../build'));
 
 app.post('/api/checkout', async (req, res) => {
   // console.log(process.env.STRIPE_PRIVATE_KEY);
