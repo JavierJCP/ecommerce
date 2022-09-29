@@ -5,6 +5,8 @@ export default function ProductState({ children }) {
   const initialState = {
     basket: [],
     user: null,
+    shippingData: {},
+    paymentMessage: '',
   };
 
   function reducer(state, action) {
@@ -40,11 +42,16 @@ export default function ProductState({ children }) {
           basket: action.basket,
           user: action.user,
         };
-      // case 'EMPTY_USER':
-      //   return {
-      //     ...state,
-      //     user: action.user,
-      //   };
+      case 'SET_SHIPPING_DATA':
+        return {
+          ...state,
+          shippingData: action.shippingData,
+        };
+      case 'PAYMENT_MESSAGE':
+        return {
+          ...state,
+          paymentMessage: action.paymentMessage,
+        };
 
       default:
         return {
