@@ -2,7 +2,7 @@ const express = require('express');
 const Stripe = require('stripe');
 const cors = require('cors');
 require('dotenv').config();
-// const path = require('node:path');
+const path = require('node:path');
 
 const app = express();
 
@@ -10,12 +10,13 @@ const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY);
 
 //midleware
 app.use(cors({ origin: 'http://localhost:3000' }));
+// app.use(cors());
 app.use(express.json());
 
 //static
-// app.use(express.static(path.join(__dirname, '../build')));
+app.use(express.static(path.join(__dirname, '../build')));
 
-// console.log(path.join(__dirname, '../build'));
+console.log(path.join(__dirname, '../build'));
 
 app.post('/api/checkout', async (req, res) => {
   // console.log(process.env.STRIPE_PRIVATE_KEY);

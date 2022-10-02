@@ -54,8 +54,8 @@ const CheckoutForm = ({ backStep, nextStep }) => {
       try {
         const { id } = paymentMethod;
         const { data } = await axios.post(
-          // 'http://localhost:4000/api/checkout',
-          'https://backendecommerce.onrender.com/api/checkout',
+          'http://localhost:4000/api/checkout',
+          // 'https://backendecommerce.onrender.com/api/checkout',
           {
             id: id,
             amount: getBasketTotal(basket) * 100,
